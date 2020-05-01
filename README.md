@@ -1,7 +1,8 @@
 - chakra UI
-- next.js
+- next.js (w/ React Fast Refresh)
 - SWR
 - typescript
+- React suspense??
 
 ///////
 
