@@ -4,6 +4,7 @@
 - typescript
 - React suspense??
 - firebase/Auth0 for auth
+- react-hook-form 
 
 ///////
 
