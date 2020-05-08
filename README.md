@@ -3,6 +3,7 @@
 - SWR
 - typescript
 - React suspense??
+- firebase/Auth0 for auth
 
 ///////
 
