@@ -1,7 +1,10 @@
 - chakra UI
-- next.js
+- next.js (w/ React Fast Refresh)
 - SWR
 - typescript
+- React suspense??
+- firebase/Auth0 for auth
+- react-hook-form 
 
 ///////
 
