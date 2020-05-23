@@ -1,3 +1,4 @@
+import { Box, Flex } from "@chakra-ui/core";
 export default function Footer() {
-  return <div>footer</div>;
+  return <Flex justifyContent="center">Guidelines</Flex>;
 }

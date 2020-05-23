@@ -1,10 +1,10 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default () => (
+export default (props) => (
   <>
     <Header />
-    {this.props.children}
+    {props.children}
     <Footer />
   </>
 );

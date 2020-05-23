@@ -1,10 +1,10 @@
 - chakra UI
 - next.js (w/ React Fast Refresh)
-- SWR
+- ~~SWR~~ resthooks.io
 - typescript
 - React suspense??
 - firebase/Auth0 for auth
-- react-hook-form 
+- react-hook-form
 
 ///////
 
