@@ -28,9 +28,17 @@ export default {
     heading: '"Avenir Next", sans-serif',
     monospace: "Menlo, monospace",
   },
+  // example colors with dark mode
   colors: {
     text: "#000",
     background: "#fff",
-    primary: "#33e",
+    primary: "#07c",
+    modes: {
+      dark: {
+        text: "#fff",
+        background: "#000",
+        primary: "#0cf",
+      },
+    },
   },
 };

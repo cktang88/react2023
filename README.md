@@ -4,7 +4,8 @@
 - React suspense??
 - firebase/Auth0 for auth
 - react-hook-form
-- [react-table v7](https://github.com/tannerlinsley/react-table/releases/tag/v7.0.0) (does no rendering) or gridjs (library-independent)
+- [react-table v7](https://github.com/tannerlinsley/react-table/releases/tag/v7.0.0) (does no rendering)
+  - ~~`gridjs` (library-independent, simple+lightweight) - no great support for syntax highlighting react components~~
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with TypeScript
 
