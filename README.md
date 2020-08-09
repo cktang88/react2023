@@ -1,6 +1,8 @@
 - ~~chakra UI~~ Theme UI
 - Next.js (w/ React Fast Refresh) + TypeScript
 - `SWR` or `coinbase/rest-hooks` or `react-query`
+  - [data-fetching lib comparison](https://dev.to/justinramel/react-data-fetching-20ij)
+  - [npm comparison](https://npmcompare.com/compare/react-query,rest-hooks,swr)
 - React suspense??
 - firebase/Auth0 for auth
 - react-hook-form
