@@ -1,10 +1,10 @@
 - ~~chakra UI~~ Theme UI
 - Next.js (w/ React Fast Refresh) + TypeScript
-- ~~SWR~~ resthooks.io
+- `SWR` or `coinbase/rest-hooks` or `react-query`
 - React suspense??
 - firebase/Auth0 for auth
 - react-hook-form
-- react-table or gridjs
+- [react-table v7](https://github.com/tannerlinsley/react-table/releases/tag/v7.0.0) (does no rendering) or gridjs (library-independent)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with TypeScript
 

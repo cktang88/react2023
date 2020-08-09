@@ -1,5 +1,5 @@
 import { Box, Flex } from "@chakra-ui/core";
-import { data } from "../data";
+import { data } from "../../data";
 import Submission from "./Submission";
 export default function Submissions() {
   return (

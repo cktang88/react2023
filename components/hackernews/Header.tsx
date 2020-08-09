@@ -1,5 +1,5 @@
 import { Box, Text } from "@chakra-ui/core";
-import customTheme from "../styles/custom";
+import customTheme from "../../styles/custom";
 
 import Link from "next/link";
 

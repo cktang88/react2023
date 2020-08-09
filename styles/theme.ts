@@ -1,4 +1,4 @@
-// example theme.js
+// example theme.js for chakra ui
 // export const theme = {
 //   breakpoints: ["30em", "48em", "62em", "80em"],
 //   fonts: {
@@ -19,3 +19,18 @@
 //     "6xl": "4rem",
 //   },
 // };
+
+// example theme.js
+export default {
+  fonts: {
+    body:
+      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+    heading: '"Avenir Next", sans-serif',
+    monospace: "Menlo, monospace",
+  },
+  colors: {
+    text: "#000",
+    background: "#fff",
+    primary: "#33e",
+  },
+};

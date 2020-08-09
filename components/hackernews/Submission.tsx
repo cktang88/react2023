@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/core";
 import Link from "next/link";
-import customTheme from "../styles/custom";
+import customTheme from "../../styles/custom";
 import dayjs from "dayjs";
 dayjs().format();
 var relativeTime = require("dayjs/plugin/relativeTime");

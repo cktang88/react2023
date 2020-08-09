@@ -1,8 +1,8 @@
 import React from "react";
 import { ThemeProvider, CSSReset, theme } from "@chakra-ui/core";
 import customTheme from "../styles/custom";
-import Layout from "../components/Layout";
-import Submissions from "../components/Submissions";
+import Layout from "../components/hackernews/Layout";
+import Submissions from "../components/hackernews/Submissions";
 import { Global, css } from "@emotion/core";
 export default function Index() {
   // Use at the root of your app
