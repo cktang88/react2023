@@ -22,7 +22,7 @@ This repository is a playground where I test various bleeding-edge React librari
 
 - Firebase
 - Auth0
-- Next-auth
+- [Next-auth.js](https://github.com/nextauthjs/next-auth)
 
 ### Forms
 
