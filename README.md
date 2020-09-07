@@ -6,6 +6,7 @@ This repository is a playground where I test various bleeding-edge React librari
 
 - ~~chakra UI~~
 - Theme UI
+- tailwindCSS + plugins
 
 ### Fetching data
 
@@ -32,6 +33,9 @@ This repository is a playground where I test various bleeding-edge React librari
 
 - [react-table v7](https://github.com/tannerlinsley/react-table/releases/tag/v7.0.0) (does no rendering)
 - ~~`gridjs` (library-independent, simple+lightweight) - no great support for syntax highlighting react components~~
+
+### State
+- [Zustand](https://github.com/react-spring/zustand)
 
 ## Dev
 
