@@ -1,4 +1,4 @@
-## react2020
+## react2021
 
 This repository is a playground where I test various bleeding-edge React libraries. The base setup is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app) with TypeScript, and comes with React Fast Refresh.
 
