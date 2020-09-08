@@ -21,7 +21,7 @@ This repository is a playground where I test various bleeding-edge React librari
 ### Auth
 
 - Firebase
-- Auth0
+- Auth0 - with [Swizec/useAuth](https://github.com/Swizec/useAuth)
 - [Next-auth.js](https://github.com/nextauthjs/next-auth)
 
 ### Forms
