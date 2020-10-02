@@ -16,7 +16,7 @@ This repository is a playground where I test various bleeding-edge React librari
 - Comparisons:
   - [data-fetching lib comparison](https://dev.to/justinramel/react-data-fetching-20ij)
   - [npm comparison](https://npmcompare.com/compare/react-query,rest-hooks,swr)
-- React suspense??
+- React suspense...
 
 ### Auth
 
