@@ -4,8 +4,8 @@ This repository is a playground where I test various bleeding-edge React librari
 
 ### CSS
 
-- ~~chakra UI~~
-- Theme UI
+- chakra UI with [disabling focus borders](https://github.com/chakra-ui/chakra-ui/discussions/1921)
+- ~~Theme UI~~
 - tailwindCSS + plugins
 
 ### Fetching data
@@ -16,7 +16,7 @@ This repository is a playground where I test various bleeding-edge React librari
 - Comparisons:
   - [data-fetching lib comparison](https://dev.to/justinramel/react-data-fetching-20ij)
   - [npm comparison](https://npmcompare.com/compare/react-query,rest-hooks,swr)
-- React suspense...
+- React suspense!
 
 ### Auth
 
@@ -36,6 +36,9 @@ This repository is a playground where I test various bleeding-edge React librari
 
 ### State
 - [Zustand](https://github.com/react-spring/zustand)
+- [Jotai](https://github.com/pmndrs/jotai)
+- [Valtio](https://github.com/pmndrs/valtio)
+- ~~[Recoil](https://github.com/facebookexperimental/Recoil) - experimental~~
 
 ## Dev
 
@@ -48,4 +51,4 @@ Open http://localhost:3000
 
 ### TODO:
 
-- migrate to Snowpack v2 https://www.snowpack.dev/#migrating-an-existing-app
+- migrate to Snowpack v2 https://www.snowpack.dev/#migrating-an-existing-app ?
