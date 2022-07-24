@@ -4,9 +4,10 @@ const todos = [];
 
 export const handlers = [
   rest.get("/todos", (req, res, ctx) => {
-    return res(ctx.json(todos));
+    // artificially slow
+    return res(ctx.delay(1000), ctx.json(todos));
   }),
-  rest.post("/add-todo", (req, res, ctx) => {
+  rest.post("/todos", (req, res, ctx) => {
     const { todo, author } = req.body;
 
     const newTodo = {
@@ -15,7 +16,9 @@ export const handlers = [
       createdAt: Date.now(),
     };
     todos.push(newTodo);
+    console.log(todos);
 
-    return res(ctx.json(newTodo));
+    // artificially slow
+    return res(ctx.delay(1000), ctx.json(newTodo));
   }),
 ];
