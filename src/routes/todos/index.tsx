@@ -18,10 +18,10 @@ function Todos() {
 const schema = z.object({
   todo: z
     .string()
-    .min(10, { message: "Todo text must be longer than 10 characters." }),
+    .min(4, { message: "Todo text must be longer than 4 characters." }),
   author: z
     .string()
-    .min(10, { message: "Author name must be longer than 10 characters." }),
+    .min(4, { message: "Author name must be longer than 4 characters." }),
 });
 
 const AddTodoForm = ({}) => {
