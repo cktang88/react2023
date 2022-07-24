@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import { useForm, SubmitHandler } from "react-hook-form";
+import { fetchJSON, postJSON } from "../../api";
 
 type Inputs = {
   todo: string;
@@ -21,19 +22,11 @@ function Todos() {
     isLoading,
     error,
     data: todos,
-  } = useQuery(["todos"], () => fetch("/todos").then((res) => res.json()));
+  } = useQuery(["todos"], () => fetchJSON("/todos"));
 
   // Mutations
   const addTodoMutation = useMutation(
-    (data: Inputs) =>
-      fetch("/todos", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      }),
+    (data: Inputs) => postJSON("/todos", data),
     {
       onSuccess: () => {
         // Invalidate and refetch
