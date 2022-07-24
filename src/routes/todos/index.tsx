@@ -5,6 +5,16 @@ import * as z from "zod";
 import { useAddTodo, useGetTodos } from "./query";
 import { Todo } from "./types";
 
+function Todos() {
+  return (
+    <div>
+      <AddTodoForm />
+      <br />
+      <TodosList />
+    </div>
+  );
+}
+
 const schema = z.object({
   todo: z
     .string()
@@ -14,7 +24,7 @@ const schema = z.object({
     .min(10, { message: "Author name must be longer than 10 characters." }),
 });
 
-function Todos() {
+const AddTodoForm = ({}) => {
   const {
     register,
     handleSubmit,
@@ -24,18 +34,11 @@ function Todos() {
     resolver: zodResolver(schema),
   });
 
-  const { isLoading, error, data: todos } = useGetTodos();
-
   const addTodo = useAddTodo();
-
   const onSubmit: SubmitHandler<Todo> = (data) => addTodo.mutate(data);
 
-  if (isLoading) return <div>"Loading..."</div>;
-
-  if (error) return <div>"An error has occurred: " + error.message</div>;
-
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input placeholder="Input your TODO" {...register("todo")} />
         {errors.todo?.message && <p>{errors.todo?.message}</p>}
@@ -60,13 +63,17 @@ function Todos() {
           </>
         )}
       </div>
-      <br />
-      <TodosList todos={todos} />
-    </div>
+    </>
   );
-}
+};
 
-const TodosList = ({ todos }: { todos: Todo[] }) => {
+const TodosList = () => {
+  const { isLoading, error, data: todos } = useGetTodos();
+
+  if (isLoading) return <div>"Loading..."</div>;
+
+  if (error) return <div>"An error has occurred: " + error.message</div>;
+
   return (
     <>
       <h2>TODOS</h2>

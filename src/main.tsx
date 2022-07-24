@@ -11,8 +11,8 @@ import Todos from "./routes/todos";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      refetchOnWindowFocus: false,
-      retry: false,
+      refetchOnWindowFocus: true,
+      retry: true, // retry: false leads to some errors on 304...
       staleTime: 30000,
     },
   },
