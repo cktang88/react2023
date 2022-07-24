@@ -3,12 +3,24 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { fetchJSON, postJSON } from "../../api";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+
+const schema = z.object({
+  todo: z
+    .string()
+    .min(10, { message: "Todo text must be longer than 10 characters." }),
+  author: z
+    .string()
+    .min(10, { message: "Author name must be longer than 10 characters." }),
+});
+
 type Inputs = {
   todo: string;
   author: string;
 };
+
 function Todos() {
-  // Access the client
   const queryClient = useQueryClient();
 
   const {
@@ -16,7 +28,9 @@ function Todos() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    resolver: zodResolver(schema),
+  });
 
   const {
     isLoading,
@@ -24,12 +38,10 @@ function Todos() {
     data: todos,
   } = useQuery(["todos"], () => fetchJSON("/todos"));
 
-  // Mutations
   const addTodoMutation = useMutation(
     (data: Inputs) => postJSON("/todos", data),
     {
       onSuccess: () => {
-        // Invalidate and refetch
         queryClient.invalidateQueries(["todos"]);
       },
     }
@@ -45,21 +57,18 @@ function Todos() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* register your input into the hook by invoking the "register" function */}
         <input
-          defaultValue="Input your TODO"
+          placeholder="Input your TODO"
           {...register("todo", { required: true, minLength: 10 })}
         />
-        {errors.todo && <span>{errors.todo.message}</span>}
+        {errors.todo?.message && <p>{errors.todo?.message}</p>}
         <br />
 
-        {/* include validation with required or other standard HTML validation rules */}
         <input
-          defaultValue="Enter author name"
+          placeholder="Enter author name"
           {...register("author", { required: true, minLength: 10 })}
         />
-        {/* errors will return when field validation fails  */}
-        {errors.author && <span>{errors.author.message}</span>}
+        {errors.author?.message && <p>{errors.author?.message}</p>}
         <br />
         <input type="submit" value="Add todo" />
       </form>
@@ -78,13 +87,21 @@ function Todos() {
         )}
       </div>
       <br />
+      <TodosList todos={todos} />
+    </div>
+  );
+}
+
+const TodosList = ({ todos }: { todos: Inputs[] }) => {
+  return (
+    <>
       <h2>TODOS</h2>
       <div>
         {todos.map((e) => (
           <p>{JSON.stringify(e)}</p>
         ))}
       </div>
-    </div>
+    </>
   );
-}
+};
 export default Todos;
