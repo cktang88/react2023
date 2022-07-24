@@ -1,10 +1,9 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-
 import { useForm, SubmitHandler } from "react-hook-form";
-import { fetchJSON, postJSON } from "../../api";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { useAddTodo, useGetTodos } from "./query";
+import { Todo } from "./types";
 
 const schema = z.object({
   todo: z
@@ -15,40 +14,21 @@ const schema = z.object({
     .min(10, { message: "Author name must be longer than 10 characters." }),
 });
 
-type Inputs = {
-  todo: string;
-  author: string;
-};
-
 function Todos() {
-  const queryClient = useQueryClient();
-
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>({
+  } = useForm<Todo>({
     resolver: zodResolver(schema),
   });
 
-  const {
-    isLoading,
-    error,
-    data: todos,
-  } = useQuery(["todos"], () => fetchJSON("/todos"));
+  const { isLoading, error, data: todos } = useGetTodos();
 
-  const addTodoMutation = useMutation(
-    (data: Inputs) => postJSON("/todos", data),
-    {
-      onSuccess: () => {
-        queryClient.invalidateQueries(["todos"]);
-      },
-    }
-  );
+  const addTodo = useAddTodo();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) =>
-    addTodoMutation.mutate(data);
+  const onSubmit: SubmitHandler<Todo> = (data) => addTodo.mutate(data);
 
   if (isLoading) return <div>"Loading..."</div>;
 
@@ -57,32 +37,26 @@ function Todos() {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          placeholder="Input your TODO"
-          {...register("todo", { required: true, minLength: 10 })}
-        />
+        <input placeholder="Input your TODO" {...register("todo")} />
         {errors.todo?.message && <p>{errors.todo?.message}</p>}
         <br />
 
-        <input
-          placeholder="Enter author name"
-          {...register("author", { required: true, minLength: 10 })}
-        />
+        <input placeholder="Enter author name" {...register("author")} />
         {errors.author?.message && <p>{errors.author?.message}</p>}
         <br />
         <input type="submit" value="Add todo" />
       </form>
       <br />
       <div>
-        {addTodoMutation.isLoading ? (
+        {addTodo.isLoading ? (
           "Adding todo..."
         ) : (
           <>
-            {addTodoMutation.isError ? (
-              <div>An error occurred: {addTodoMutation.error.message}</div>
+            {addTodo.isError ? (
+              <div>An error occurred: {addTodo.error.message}</div>
             ) : null}
 
-            {addTodoMutation.isSuccess ? <div>Todo added!</div> : null}
+            {addTodo.isSuccess ? <div>Todo added!</div> : null}
           </>
         )}
       </div>
@@ -92,7 +66,7 @@ function Todos() {
   );
 }
 
-const TodosList = ({ todos }: { todos: Inputs[] }) => {
+const TodosList = ({ todos }: { todos: Todo[] }) => {
   return (
     <>
       <h2>TODOS</h2>

@@ -8,7 +8,15 @@ import Invoices from "./routes/invoices";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Todos from "./routes/todos";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+      staleTime: 30000,
+    },
+  },
+});
 
 // Start the mocking conditionally.
 if (process.env.NODE_ENV === "development") {
