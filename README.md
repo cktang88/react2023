@@ -13,3 +13,6 @@ Libraries:
 - React Table v8
 - React Hook Form v7.33
 - React Query v4
+
+- [Vanilla-extract](https://github.com/seek-oss/vanilla-extract) - vite + TS support, zero runtime
+- [Radix UI](https://www.radix-ui.com/docs/primitives/components/accordion) - styleless components
