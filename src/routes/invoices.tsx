@@ -1,7 +1,9 @@
+import { themeClass, hero } from "./invoices.css"
+
 export default function Invoices() {
   return (
-    <main style={{ padding: "1rem 0" }}>
-      <h2>Invoices</h2>
+    <main className={themeClass}>
+      <h2 className={hero}>Invoices</h2>
     </main>
   );
 }
