@@ -1,4 +1,4 @@
-import { themeClass, hero } from "./invoices.css"
+import { themeClass, hero, btnStyle } from "./invoices.css"
 
 
 import * as Accordion from '@radix-ui/react-accordion';
@@ -7,7 +7,7 @@ const KAccordion = ({ items }: { items: { triggerText: string, contentText: stri
   <Accordion.Root type="multiple">
     {items.map((item, index) =>
       <Accordion.Item value={`item-${index}`}>
-        <Accordion.Header ><Accordion.Trigger >{item.triggerText}</Accordion.Trigger> </Accordion.Header>
+        <Accordion.Header ><Accordion.Trigger className={btnStyle}>{item.triggerText}</Accordion.Trigger> </Accordion.Header>
         <Accordion.Content >{item.contentText}</Accordion.Content>
       </Accordion.Item>)}
   </Accordion.Root>
